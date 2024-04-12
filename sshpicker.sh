@@ -50,9 +50,9 @@ if [[ ! -f "${hostsini}" ]]; then
 fi
 
 
-host_list=$(cat $hostsini | grep -Ev '^#' |awk -F"#" '{print $1}'  | awk -F"$separator" '{ print $1}' | tr -d ' '  | xargs | sort)
+host_list=$(cat $hostsini | grep -Ev '^#' |awk -F"#" '{print $1}'  | awk -F"$separator" '{ print $1}' | tr -d ' '  | sort | xargs)
 # After excluding comments,space and blank lines, extract field 1 as the hostname, and store it in a list.
-ip_list=$(cat $hostsini | grep -Ev '^#' |awk -F"#" '{print $1}'  | awk -F"$separator" '{ if($2!="") {print $2} else {print $1}}' | tr -d ' '  | xargs | sort)
+ip_list=$(cat $hostsini | grep -Ev '^#' |awk -F"#" '{print $1}'  | awk -F"$separator" '{ if($2!="") {print $2} else {print $1}}' | tr -d ' '  | sort | xargs)
 # After excluding comments,space and blank lines, extract field 2 as the ip, and store it in a list. 
 # If field 2 does not exist, then field 1 will be used.
 
