@@ -6,6 +6,7 @@
 set -euo pipefail
 
 separator=";"
+remote_user=rui
 
 help() {
 
@@ -26,7 +27,6 @@ if [[ -z "$1" ]]; then
 fi
 
 remote_host="$1"
-remote_user=rui
 
 echo -e "\nss2host> remote host: ${remote_host}\n"
 
